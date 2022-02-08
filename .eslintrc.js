@@ -1,20 +1,15 @@
+/* eslint-env node */
 module.exports = {
+  root: true,
   env: {
     browser: true,
-    es6: true,
-    node: true,
+    es2020: true,
   },
   extends: [
     'eslint:recommended',
     'plugin:vue/vue3-recommended',
-    'plugin:tailwindcss/recommended',
+    'plugin:tailwindcss/recommended', // TODO: v1.x not support tailwind v3
     'prettier',
   ],
-  plugins: ['tailwindcss'],
-  parser: 'vue-eslint-parser',
-  parserOptions: {
-    sourceType: 'module',
-    ecmaVersion: 2020,
-  },
   rules: {},
 };
