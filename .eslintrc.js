@@ -8,7 +8,7 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:vue/vue3-recommended',
-    'plugin:tailwindcss/recommended', // TODO: v1.x not support tailwind v3
+    'plugin:tailwindcss/recommended',
     'prettier',
   ],
   rules: {},
