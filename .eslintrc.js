@@ -11,6 +11,7 @@ module.exports = {
     'plugin:tailwindcss/recommended',
     'prettier',
   ],
+  parser: 'vue-eslint-parser',
   rules: {
     'consistent-return': 'error',
   },
