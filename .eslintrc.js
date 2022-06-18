@@ -11,5 +11,7 @@ module.exports = {
     'plugin:tailwindcss/recommended',
     'prettier',
   ],
-  rules: {},
+  rules: {
+    'consistent-return': 'error',
+  },
 };
