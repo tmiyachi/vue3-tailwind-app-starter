@@ -7,7 +7,7 @@
           "defaults"
         ],
         "useBuiltIns": "usage",
-        "corejs": "3.24",
+        "corejs": "3.26",
         "debug": true
       }
     ]
