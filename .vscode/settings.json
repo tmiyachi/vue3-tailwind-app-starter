@@ -2,7 +2,6 @@
   "prettier.enable": true,
   "stylelint.enable": true,
   "eslint.enable": true,
-  "eslint.alwaysShowStatus": true,
   "eslint.useESLintClass": true,
   "eslint.validate": [
     "javascript",

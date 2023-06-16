@@ -10,7 +10,7 @@ const BANNER = `
 /*! FOLLOWING LIBRARIES ARE USED.
  * - core-js (https://github.com/zloirock/core-js/blob/master/LICENSE)
  *   The MIT License (MIT)
- *   Copyright (c) 2014-2022 Denis Pushkarev
+ *   Copyright (c) 2014-2023 Denis Pushkarev
  *
  * - vue (https://github.com/vuejs/vue-next/blob/master/LICENSE)
  *   The MIT License (MIT)

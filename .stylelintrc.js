@@ -3,7 +3,6 @@ module.exports = {
     'stylelint-config-recommended',
     'stylelint-config-recess-order',
     'stylelint-config-recommended-vue',
-    'stylelint-config-prettier',
   ],
   rules: {
     'at-rule-no-unknown': [
