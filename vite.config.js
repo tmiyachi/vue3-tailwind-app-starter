@@ -18,6 +18,7 @@ const BANNER = `
 export default defineConfig({
   plugins: [vue()],
 
+  // base: './', // ルートではないパブリックパスにデプロイする場合
   root: path.resolve(__dirname, 'src'),
   publicDir: path.resolve(__dirname, 'public'),
   resolve: {
