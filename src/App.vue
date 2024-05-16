@@ -1,7 +1,7 @@
 <template>
-  <div class="flex justify-center items-center h-screen">
+  <div class="flex h-screen items-center justify-center">
     <div
-      class="py-2 px-3 text-xl font-bold text-white bg-indigo-800 rounded-lg border shadow-lg"
+      class="rounded-lg border bg-indigo-800 px-3 py-2 text-xl font-bold text-white shadow-lg"
     >
       {{ greeting }}
     </div>
