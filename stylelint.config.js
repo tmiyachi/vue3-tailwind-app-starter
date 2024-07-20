@@ -1,4 +1,6 @@
-module.exports = {
+/** @type {import('stylelint').Config} */
+export default {
+  ignoreFiles: ['dist/**/*'],
   extends: [
     'stylelint-config-recommended',
     'stylelint-config-recess-order',

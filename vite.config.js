@@ -2,7 +2,7 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import path from 'path';
-const license = require('rollup-plugin-license');
+import license from 'rollup-plugin-license';
 
 const BANNER = `
 /*! FOLLOWING LIBRARIES ARE USED.
