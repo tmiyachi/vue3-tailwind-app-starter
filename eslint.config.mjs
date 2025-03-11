@@ -1,12 +1,14 @@
-import { defineConfig } from "eslint/config";
+import { defineConfig } from 'eslint/config';
 import globals from 'globals';
-import tailwind from "eslint-plugin-tailwindcss";
+import tailwind from 'eslint-plugin-tailwindcss';
 import eslintConfigPrettier from 'eslint-config-prettier/flat';
 
 /**
  * @see https://eslint.org/docs/latest/use/configure/
  */
 export default defineConfig([
+  ...tailwind.configs['flat/recommended'],
+  eslintConfigPrettier,
   {
     ignores: ['dist/**/*'],
     languageOptions: {
@@ -30,6 +32,4 @@ export default defineConfig([
       ],
     },
   },
-  ...tailwind.configs["flat/recommended"],
-  eslintConfigPrettier,
 ]);
