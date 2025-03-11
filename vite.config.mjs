@@ -1,8 +1,12 @@
 /* eslint-env node */
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
-import path from 'path';
 import license from 'rollup-plugin-license';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const BANNER = `
 /*! FOLLOWING LIBRARIES ARE USED.
@@ -16,16 +20,10 @@ const BANNER = `
  */`;
 
 export default defineConfig({
-  root: path.resolve(__dirname, 'src'),
-  base: './', // 埋め込みデプロイ
-  define: {
-    __VUE_OPTIONS_API__: false, // Option API を使う場合はtrue
-    __VUE_PROD_DEVTOOLS__: false,
-  },
   plugins: [vue()],
-  // 加工せずに静的アセットとして配信するディレクトリ
-  // 開発時には / として配信され、ビルド時には outDir のルートにコピーされる
-  // https://ja.vite.dev/guide/assets.html#the-public-directory
+
+  root: path.resolve(__dirname, 'src'),
+  base: './',
   publicDir: path.resolve(__dirname, 'public'),
   resolve: {
     extensions: ['.vue', '.js'],
@@ -33,17 +31,7 @@ export default defineConfig({
       '@': path.resolve(__dirname, 'src'),
     },
   },
-  server: {
-    port: 8080,
-    open: true,
-    proxy: {
-      // '/api': 'http://localhost:8081',
-      // '/api': {
-      //  target: 'http://example.com',
-      //  changeOrigin: true,
-      //  rewrite: (path) => path.replace(/^\/api/, ''),
-    },
-  },
+
   build: {
     // target: ['firefox86'], // バンドルのブラウザ互換性のターゲットを指定する
     outDir: '../dist',
@@ -62,8 +50,6 @@ export default defineConfig({
       plugins: [
         license({
           sourcemap: true,
-          cwd: process.cwd(), // The default
-
           banner: BANNER,
           thirdParty: {
             // includePrivate: true, // Default is false.
@@ -74,6 +60,23 @@ export default defineConfig({
           },
         }),
       ],
+    },
+  },
+
+  define: {
+    __VUE_OPTIONS_API__: false, // Option API を使う場合はtrue
+    __VUE_PROD_DEVTOOLS__: false,
+  },
+
+  server: {
+    port: 8080,
+    open: true,
+    proxy: {
+      // '/api': 'http://localhost:8081',
+      // '/api': {
+      //  target: 'http://example.com',
+      //  changeOrigin: true,
+      //  rewrite: (path) => path.replace(/^\/api/, ''),
     },
   },
 });

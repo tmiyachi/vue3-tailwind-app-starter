@@ -1,5 +1,12 @@
-/* @type {import('eslint').Linter.FlatConfig[]} **/
-export default [
+import { defineConfig } from "eslint/config";
+import globals from 'globals';
+import tailwind from "eslint-plugin-tailwindcss";
+import eslintConfigPrettier from 'eslint-config-prettier/flat';
+
+/**
+ * @see https://eslint.org/docs/latest/use/configure/
+ */
+export default defineConfig([
   {
     ignores: ['dist/**/*'],
     languageOptions: {
@@ -23,6 +30,6 @@ export default [
       ],
     },
   },
-  'plugin:tailwindcss/recommended',
-  'prettier',
-];
+  ...tailwind.configs["flat/recommended"],
+  eslintConfigPrettier,
+]);
