@@ -1,7 +1,7 @@
 import { defineConfig } from 'eslint/config';
 import globals from 'globals';
 import pluginVue from 'eslint-plugin-vue';
-import tailwind from 'eslint-plugin-tailwindcss';
+// import tailwind from 'eslint-plugin-tailwindcss';
 import eslintConfigPrettier from 'eslint-config-prettier/flat';
 
 /**
@@ -9,7 +9,7 @@ import eslintConfigPrettier from 'eslint-config-prettier/flat';
  */
 export default defineConfig([
   ...pluginVue.configs['flat/recommended'],
-  ...tailwind.configs['flat/recommended'],
+  // ...tailwind.configs['flat/recommended'],
   eslintConfigPrettier,
   {
     ignores: ['dist/**/*'],

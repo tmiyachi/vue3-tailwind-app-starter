@@ -1,6 +1,7 @@
 /* eslint-env node */
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
+import tailwindcss from '@tailwindcss/vite';
 import license from 'rollup-plugin-license';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -20,7 +21,7 @@ const BANNER = `
  */`;
 
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [vue(), tailwindcss()],
 
   root: path.resolve(__dirname, 'src'),
   base: './',
@@ -33,7 +34,10 @@ export default defineConfig({
   },
 
   build: {
-    // target: ['firefox86'], // バンドルのブラウザ互換性のターゲットを指定する
+    // バンドルのブラウザ互換性のターゲットを指定する
+    //   Tailwind CSS v4.0 is designed for modern browsers and
+    //   targets Safari 16.4、Chrome 111、Firefox 128
+    // target: [],
     outDir: '../dist',
     assetsDir: 'assets',
     // assetsInlineLimit: 0,  // アセットのをbase64インライン化を無効にする
