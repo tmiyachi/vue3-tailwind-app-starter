@@ -21,7 +21,6 @@ export default defineConfig([
       ecmaVersion: 'latest',
       globals: {
         ...globals.browser,
-        ...globals.es6,
       },
     },
     rules: {
