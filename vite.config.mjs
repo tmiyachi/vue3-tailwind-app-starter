@@ -19,64 +19,66 @@ const BANNER = `
  *   Copyright (c) Tailwind Labs, Inc.
  */`;
 
-export default defineConfig({
-  plugins: [vue()],
+export default defineConfig(({ mode }) => {
+  return {
+    plugins: [vue()],
 
-  root: path.resolve(__dirname, 'src'),
-  base: './',
-  publicDir: path.resolve(__dirname, 'public'),
-  resolve: {
-    extensions: ['.vue', '.js'],
-    alias: {
-      '@': path.resolve(__dirname, 'src'),
-    },
-  },
-
-  build: {
-    // target: ['firefox86'], // バンドルのブラウザ互換性のターゲットを指定する
-    outDir: '../dist',
-    assetsDir: 'assets',
-    // assetsInlineLimit: 0,  // アセットのをbase64インライン化を無効にする
-    // sourcemap: true,  // ソースマップファイルを別に作成する
-    emptyOutDir: true, // ビルド時に outDir を空にする
-
-    // assetsInclude
-    rollupOptions: {
-      output: {
-        entryFileNames: '[name].bundle.js',
-        chunkFileNames: `js/[name].js`, // vendor chunk filenames
-        assetFileNames: `assets/[name].[ext]`, // CSSもassetsになる
+    root: path.resolve(__dirname, 'src'),
+    base: './',
+    publicDir: path.resolve(__dirname, 'public'),
+    resolve: {
+      extensions: ['.vue', '.js'],
+      alias: {
+        '@': path.resolve(__dirname, 'src'),
       },
-      plugins: [
-        license({
-          sourcemap: true,
-          banner: BANNER,
-          thirdParty: {
-            // includePrivate: true, // Default is false.
-            // multipleVersions: true, // Default is false.
-            // output: {
-            //   file: path.join(__dirname, 'dist', 'DEPENDENCIES.txt'),
-            // },
-          },
-        }),
-      ],
     },
-  },
 
-  define: {
-    __VUE_OPTIONS_API__: false, // Option API を使う場合はtrue
-    __VUE_PROD_DEVTOOLS__: false,
-  },
+    build: {
+      // target: ['firefox86'], // バンドルのブラウザ互換性のターゲットを指定する
+      outDir: '../dist',
+      assetsDir: 'assets',
+      // assetsInlineLimit: 0,  // アセットのをbase64インライン化を無効にする
+      // sourcemap: true,  // ソースマップファイルを別に作成する
+      emptyOutDir: true, // ビルド時に outDir を空にする
 
-  server: {
-    port: 8080,
-    open: true,
-    proxy: {
-      // '/api': 'http://localhost:8081',
-      // '/api': {
-      //  target: 'http://example.com',
-      //  changeOrigin: true,
-      //  rewrite: (path) => path.replace(/^\/api/, ''),
+      // assetsInclude
+      rollupOptions: {
+        output: {
+          entryFileNames: '[name].bundle.js',
+          chunkFileNames: `js/[name].js`, // vendor chunk filenames
+          assetFileNames: `assets/[name].[ext]`, // CSSもassetsになる
+        },
+        plugins: [
+          license({
+            sourcemap: true,
+            banner: BANNER,
+            thirdParty: {
+              // includePrivate: true, // Default is false.
+              // multipleVersions: true, // Default is false.
+              // output: {
+              //   file: path.join(__dirname, 'dist', 'DEPENDENCIES.txt'),
+              // },
+            },
+          }),
+        ],
+      },
     },
-  },
+
+    define: {
+      __VUE_OPTIONS_API__: false, // Option API を使う場合はtrue
+      __VUE_PROD_DEVTOOLS__: false,
+    },
+
+    server: {
+      port: 8080,
+      open: true,
+      proxy: {
+        // '/api': 'http://localhost:8081',
+        // '/api': {
+        //  target: 'http://example.com',
+        //  changeOrigin: true,
+        //  rewrite: (path) => path.replace(/^\/api/, ''),
+      },
+    },
+  };
 });
